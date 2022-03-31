@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { InputGroup, FormControl, Button, Container } from "react-bootstrap";
+import AnimeTable from "./AnimeTable";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           </Button>
         </InputGroup>
       </Container>
+      <AnimeTable />
     </>
   );
 }
