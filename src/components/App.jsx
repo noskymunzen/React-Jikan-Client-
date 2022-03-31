@@ -1,8 +1,19 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
 import { InputGroup, FormControl, Button, Container } from "react-bootstrap";
+import $anime from "../services/anime";
 import AnimeTable from "./AnimeTable";
 
 function App() {
+  const getAnimeList = async () => {
+    const response = await $anime.getAnime();
+    console.log(response.data);
+  };
+
+  useEffect(() => {
+    getAnimeList();
+  }, []);
+
   return (
     <>
       <h1 className="d-flex justify-content-center mt-5">
