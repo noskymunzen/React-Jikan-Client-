@@ -6,11 +6,20 @@ import AnimeTable from "./AnimeTable";
 
 function App() {
   const [list, setList] = useState([]);
+  const [selectedAnime, setSelectedAnime] = useState(null);
 
   const getAnimeList = async () => {
     const response = await $anime.getAnime();
     setList(response.data);
     console.log(response.data);
+  };
+
+  const onClickDetails = async (malId) => {
+    console.log("Ahora debo pedir los datos del anime con id:", malId);
+    const anime = await $anime.getAnimeById(malId);
+    setSelectedAnime(anime);
+    console.log(selectedAnime);
+    console.log("cuando tenga los datos del anime abro el modal");
   };
 
   useEffect(() => {
@@ -30,7 +39,7 @@ function App() {
           </Button>
         </InputGroup>
       </Container>
-      <AnimeTable items={list} />
+      <AnimeTable onClickDetails={onClickDetails} items={list} />
     </>
   );
 }
