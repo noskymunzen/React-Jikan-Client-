@@ -13,16 +13,19 @@ const AnimeTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <Button variant="outline-secondary" id="button-addon2">
-                Details
-              </Button>
-            </td>
-          </tr>
+          {props.items.map((item) => (
+            <tr>
+              <td>{item.mal_id}</td>
+              <td>{item.title}</td>
+              <td>{item.score}</td>
+              <td>
+                <Button variant="outline-secondary" id="button-addon2">
+                  Details
+                </Button>
+              </td>
+            </tr>
+          ))}
+          ;
         </tbody>
       </Table>
     </Container>

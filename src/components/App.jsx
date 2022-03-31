@@ -1,12 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { InputGroup, FormControl, Button, Container } from "react-bootstrap";
 import $anime from "../services/anime";
 import AnimeTable from "./AnimeTable";
 
 function App() {
+  const [list, setList] = useState([]);
+
   const getAnimeList = async () => {
     const response = await $anime.getAnime();
+    setList(response.data);
     console.log(response.data);
   };
 
@@ -27,7 +30,7 @@ function App() {
           </Button>
         </InputGroup>
       </Container>
-      <AnimeTable />
+      <AnimeTable items={list} />
     </>
   );
 }
