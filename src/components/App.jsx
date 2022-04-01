@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { InputGroup, FormControl, Button, Container } from "react-bootstrap";
 import $anime from "../services/anime";
 import AnimeTable from "./AnimeTable";
+import AnimeModal from "./AnimeModal";
 
 function App() {
   const [list, setList] = useState([]);
   const [selectedAnime, setSelectedAnime] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const getAnimeList = async () => {
     const response = await $anime.getAnime();
@@ -17,9 +19,11 @@ function App() {
   const onClickDetails = async (malId) => {
     console.log("Ahora debo pedir los datos del anime con id:", malId);
     const anime = await $anime.getAnimeById(malId);
+    console.log(anime);
     setSelectedAnime(anime);
     console.log(selectedAnime);
     console.log("cuando tenga los datos del anime abro el modal");
+    setShowModal(true);
   };
 
   useEffect(() => {
@@ -40,6 +44,13 @@ function App() {
         </InputGroup>
       </Container>
       <AnimeTable onClickDetails={onClickDetails} items={list} />
+      {selectedAnime && (
+        <AnimeModal
+          anime={selectedAnime}
+          show={showModal}
+          onHide={() => setShowModal(false)}
+        />
+      )}
     </>
   );
 }
