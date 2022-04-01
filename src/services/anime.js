@@ -13,7 +13,7 @@ const getAnime = async (search = "") => {
 const getAnimeById = async (id) => {
   const endpoint = `/anime/${id}`;
   const { data } = await instance.get(endpoint);
-  return data;
+  return data.data;
 };
 
 export default {
