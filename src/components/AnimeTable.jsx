@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container, Table, Button } from "react-bootstrap";
 
 const AnimeTable = (props) => {
@@ -13,6 +14,7 @@ const AnimeTable = (props) => {
           </tr>
         </thead>
         <tbody>
+          {props.loading && !props.items.length && <tr> No items found </tr>}
           {props.items.map((item) => (
             <tr key={item.mal_id}>
               <td>{item.mal_id}</td>

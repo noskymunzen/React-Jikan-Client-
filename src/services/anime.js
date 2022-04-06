@@ -4,8 +4,8 @@ const instance = axios.create({
   baseURL: "https://api.jikan.moe/v4",
 });
 
-const getAnime = async (search = "") => {
-  const endpoint = `/anime?q=${search}`;
+const getAnime = async (search = "", page = 1) => {
+  const endpoint = `/anime?q=${search}&page=${page}`;
   const { data } = await instance.get(endpoint);
   return data;
 };
