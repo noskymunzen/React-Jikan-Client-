@@ -1,12 +1,4 @@
-import {
-  Modal,
-  Row,
-  Col,
-  Badge,
-  Accordion,
-  Container,
-  Carousel,
-} from "react-bootstrap";
+import { Modal, Row, Col, Badge, Accordion, Container } from "react-bootstrap";
 
 const AnimeModal = (props) => {
   return (
@@ -65,7 +57,7 @@ const AnimeModal = (props) => {
                     <span>Trailer:</span>
                   </Col>
                   <Col sm={10}>
-                    <a href={props.anime.trailer.url}>Ver</a>
+                    <a href={props.anime.trailer.url}>See</a>
                   </Col>
                 </>
               )}
