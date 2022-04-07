@@ -21,7 +21,7 @@ const AnimeModal = (props) => {
           <Container className="bg-light">
             <Row>
               <Col sm={2} className="mb-2">
-                <span>Year:</span>
+                <span className="fw-bold">Year:</span>
               </Col>
               <Col sm={10}>
                 <Badge bg="warning">{props.anime.year || "-"}</Badge>
@@ -30,7 +30,7 @@ const AnimeModal = (props) => {
 
             <Row>
               <Col sm={2} className="mb-2">
-                <span>Episodes:</span>
+                <span className="fw-bold">Episodes:</span>
               </Col>
               <Col sm={10}>
                 <Badge bg="danger">{props.anime.episodes || "-"}</Badge>
@@ -39,7 +39,7 @@ const AnimeModal = (props) => {
 
             <Row>
               <Col sm={2} className="mb-2">
-                <span>Genres:</span>
+                <span className="fw-bold">Genres:</span>
               </Col>
               <Col sm={10}>
                 {props.anime.genres.map((genre) => (
@@ -54,7 +54,7 @@ const AnimeModal = (props) => {
               {props.anime.trailer.url && (
                 <>
                   <Col sm={2}>
-                    <span>Trailer:</span>
+                    <span className="fw-bold">Trailer:</span>
                   </Col>
                   <Col sm={10}>
                     <a href={props.anime.trailer.url}>See</a>

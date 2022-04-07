@@ -6,7 +6,7 @@ const AnimeTable = (props) => {
     <Container className="d-flex justify-content-center mt-5">
       <Table striped bordered variant="white">
         <thead>
-          <tr>
+          <tr className="h5">
             <th>#</th>
             <th>Title</th>
             <th>Score</th>
@@ -14,16 +14,16 @@ const AnimeTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.loading && !props.items.length && <tr> No items found </tr>}
+          {!props.loading && !props.items.length && <tr> No items found </tr>}
           {props.items.map((item) => (
-            <tr key={item.mal_id}>
+            <tr className="h6" key={item.mal_id}>
               <td>{item.mal_id}</td>
               <td>{item.title}</td>
               <td>{item.score}</td>
               <td>
                 <Button
                   onClick={() => props.onClickDetails(item.mal_id)}
-                  variant="outline-secondary"
+                  variant="btn btn-secondary"
                   id="button-addon2"
                 >
                   Details
