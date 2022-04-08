@@ -32,14 +32,11 @@ function App() {
     setList(response.data);
     window.scrollTo({ behavior: "smooth", top: titleRef.current.offsetTop });
     setHasNext(response.pagination.has_next_page);
-    console.log(response.pagination.has_next_page);
     setLoading(false);
-    console.log(response.data);
   };
 
   const onClickDetails = async (malId) => {
     const anime = await $anime.getAnimeById(malId);
-    console.log(anime);
     setSelectedAnime(anime);
     setShowModal(true);
   };
@@ -51,12 +48,10 @@ function App() {
 
   const handlePrevious = () => {
     setPage(page - 1);
-    console.log(page - 1);
   };
 
   const handleNext = () => {
     setPage(page + 1);
-    console.log(page + 1);
   };
 
   useEffect(() => {
